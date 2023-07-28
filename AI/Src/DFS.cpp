@@ -41,5 +41,5 @@ bool DFS::Run(GridBaseGraph& graph, int startX, int startY, int endX, int endY)
 		node->closed;
 	}
 
-	return false;
+	return found;
 }

@@ -29,7 +29,7 @@ void TileMap::LoadTiles(const char* fileName)
 
 	for (int i = 0; i < count; ++i)
 	{
-		int isBlocked = 0;
+		bool isBlocked = 0;
 		file >> buffer;
 		file >> isBlocked;
 
@@ -86,9 +86,9 @@ void TileMap::LoadMap(const char* fileName)
 	};
 
 	mGraph.Initialize(mColumns, mRows);
-	for (int r = 0; r < mColumns; ++r)
+	for (int r = 0; r < mRows; ++r)
 	{
-		for (int c = 0; c < mRows; ++c)
+		for (int c = 0; c < mColumns; ++c)
 		{
 			if (IsBlock(c, r))
 			{

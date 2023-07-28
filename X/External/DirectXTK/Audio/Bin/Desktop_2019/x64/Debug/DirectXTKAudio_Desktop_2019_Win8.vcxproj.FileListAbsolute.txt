@@ -1,2 +1,3 @@
 C:\Users\tranp\Downloads\Code\X\External\DirectXTK\Audio\Bin\Desktop_2019\x64\Debug\DirectXTKAudioWin8.lib
 A:\AI\X\External\DirectXTK\Audio\Bin\Desktop_2019\x64\Debug\DirectXTKAudioWin8.lib
+C:\Users\LCV2042835\Documents\GitHub\AI\X\External\DirectXTK\Audio\Bin\Desktop_2019\x64\Debug\DirectXTKAudioWin8.lib

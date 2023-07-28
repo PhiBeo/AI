@@ -36,7 +36,7 @@ bool GameLoop(float deltaTime)
 
 	for (int i = 1; i < path.size(); ++i)
 	{
-		X::DrawScreenLine(path[i - 1], path[i], X::Colors::Green);
+		X::DrawScreenLine(path[i - 1], path[i], X::Colors::Cyan);
 	}
 
 	X::DrawScreenCircle(tileMap.GetPixelPosition(startX, startY), 10, X::Colors::Yellow);
