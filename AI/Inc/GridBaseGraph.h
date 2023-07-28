@@ -27,11 +27,15 @@ namespace AI
 			bool opened = false;
 			bool closed = false;
 
+			float h = 0, g = 0;
+
 			void Reset()
 			{
 				parent = nullptr;
 				opened = false;
 				closed = false;
+				h = 0;
+				g = 0;
 			}
 		};
 
@@ -44,6 +48,8 @@ namespace AI
 
 		int GetColumns() const { return mColumns; }
 		int GetRows() const { return mRows; }
+
+		float GetHeuristics(int startX, int startY, int endX, int endY);
 
 	private:
 		int GetIndex(int x, int y) const;

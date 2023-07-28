@@ -55,6 +55,17 @@ const GridBaseGraph::Node* GridBaseGraph::GetNode(int x, int y) const
 	return nullptr;
 }
 
+float AI::GridBaseGraph::GetHeuristics(int startX, int startY, int endX, int endY)
+{
+	int dX = X::Math::Abs(startX - endX);
+	int dY = X::Math::Abs(startY - endY);
+
+	int D = 1;
+	int D2 = X::Math::Sqrt(2);
+
+	return D * (dX + dY) + (D2 - 2 * D) * X::Math::Min(dX, dY);
+}
+
 int GridBaseGraph::GetIndex(int x, int y) const
 {
 	return x + (y * mColumns);
