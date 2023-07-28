@@ -160,11 +160,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Inc\AI.h" />
+    <ClInclude Include="Inc\BFS.h" />
     <ClInclude Include="Inc\Common.h" />
+    <ClInclude Include="Inc\DFS.h" />
     <ClInclude Include="Inc\GridBaseGraph.h" />
     <ClInclude Include="Src\Precompiled.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Src\BFS.cpp" />
+    <ClCompile Include="Src\DFS.cpp" />
     <ClCompile Include="Src\GridBaseGraph.cpp" />
     <ClCompile Include="Src\Precompiled.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

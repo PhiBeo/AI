@@ -21,22 +21,36 @@ void AI::GridBaseGraph::Initialize(int columns, int rows)
 	}
 }
 
+void AI::GridBaseGraph::ResetSearchParams()
+{
+	for (auto& node : mNodes)
+	{
+		node.Reset();
+	}
+}
+
 GridBaseGraph::Node* GridBaseGraph::GetNode(int x, int y)
 {
-	const int index = GetIndex(x, y);
-	if (index < mNodes.size())
+	if (x >= 0 && x < mColumns && y >= 0 && y < mRows)
 	{
-		return &mNodes[index];
+		const int index = GetIndex(x, y);
+		if (index < mNodes.size())
+		{
+			return &mNodes[index];
+		}
 	}
 	return nullptr;
 }
 
-const GridBaseGraph::Node* AI::GridBaseGraph::GetNode(int x, int y) const
+const GridBaseGraph::Node* GridBaseGraph::GetNode(int x, int y) const
 {
-	const int index = GetIndex(x, y);
-	if (index < mNodes.size())
+	if (x >= 0 && x < mColumns && y >= 0 && y < mRows)
 	{
-		return &mNodes[index];
+		const int index = GetIndex(x, y);
+		if (index < mNodes.size())
+		{
+			return &mNodes[index];
+		}
 	}
 	return nullptr;
 }

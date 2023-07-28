@@ -1,0 +1,5 @@
+﻿  Precompiled.cpp
+  GridBaseGraph.cpp
+A:\AI\AI\Src\GridBaseGraph.cpp(27,12): warning C4018: '<': signed/unsigned mismatch
+A:\AI\AI\Src\GridBaseGraph.cpp(37,12): warning C4018: '<': signed/unsigned mismatch
+  AI.vcxproj -> A:\AI\Debug\AI.lib

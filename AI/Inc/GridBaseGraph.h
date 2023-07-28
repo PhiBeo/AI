@@ -22,9 +22,22 @@ namespace AI
 		{
 			std::array<Node*, 8> neighbors = {};
 			int column = 0, row = 0;
+
+			Node* parent = nullptr;
+			bool opened = false;
+			bool closed = false;
+
+			void Reset()
+			{
+				parent = nullptr;
+				opened = false;
+				closed = false;
+			}
 		};
 
 		void Initialize(int columns, int rows);
+
+		void ResetSearchParams();
 
 		Node* GetNode(int x, int y);
 		const Node* GetNode(int x, int y) const;

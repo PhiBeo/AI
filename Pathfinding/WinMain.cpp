@@ -1,9 +1,11 @@
 #include "TileMap.h"
+#include "ImGui/Inc/imgui.h"
 #include <XEngine.h> // <> for external includes, "" for internal includes
 
 TileMap tileMap;
-X::TextureId textureId;
-X::Math::Vector2 position;
+Path path;
+int startX = 5, startY = 12;
+int endX = 9, endY = 16;
 
 //--------------------------------------------------
 
@@ -11,27 +13,34 @@ void GameInit()
 {
 	tileMap.LoadTiles("tiles.txt");
 	tileMap.LoadMap("map.txt");
-
-	textureId = X::LoadTexture("bird1.png");
-	position = { 100.0f, 100.0f };
 }
 
 bool GameLoop(float deltaTime)
 {
-	const float moveSpeed = 200.0f; // pixel per second
-	if (X::IsKeyDown(X::Keys::RIGHT))
-		position.x += moveSpeed * deltaTime;
-	if (X::IsKeyDown(X::Keys::DOWN))
-		position.y += moveSpeed * deltaTime;
-	if (X::IsKeyDown(X::Keys::UP))
-		position.y -= moveSpeed * deltaTime;
-	if (X::IsKeyDown(X::Keys::LEFT))
-		position.x -= moveSpeed * deltaTime;
+	ImGui::Begin("Pathfinding");
+	ImGui::DragInt("StartX##", &startX, 1, 0, tileMap.GetColumns() - 1);
+	ImGui::DragInt("StartY##", &startY, 1, 0, tileMap.GetRows() - 1);
+	ImGui::DragInt("EndX##", &endX, 1, 0, tileMap.GetColumns() - 1);
+	ImGui::DragInt("EndY##", &endY, 1, 0, tileMap.GetRows() - 1);
+	if (ImGui::Button("RunBFS##"))
+	{
+		path = tileMap.FindPathBFS(startX, startY, endX, endY);
+	}
+	if (ImGui::Button("RunDFS##"))
+	{
+		path = tileMap.FindPathDFS(startX, startY, endX, endY);
+	}
+	ImGui::End();
 
 	tileMap.Render();
 
-	X::DrawSprite(textureId, position, X::Pivot::TopLeft, X::Flip::Horizontal);
-	X::DrawScreenDiamond(position, 5.0f, X::Colors::Cyan);
+	for (int i = 1; i < path.size(); ++i)
+	{
+		X::DrawScreenLine(path[i - 1], path[i], X::Colors::Green);
+	}
+
+	X::DrawScreenCircle(tileMap.GetPixelPosition(startX, startY), 10, X::Colors::Yellow);
+	X::DrawScreenCircle(tileMap.GetPixelPosition(endX, endY), 10, X::Colors::Blue);
 
 	const bool quit = X::IsKeyPressed(X::Keys::ESCAPE);
 	return quit;

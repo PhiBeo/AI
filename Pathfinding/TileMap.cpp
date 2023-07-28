@@ -110,7 +110,6 @@ void TileMap::LoadMap(const char* fileName)
 
 void TileMap::Render() const
 {
-	// TODO - Draw the map using mTiles and mMap
 	float spriteWidth = X::GetSpriteWidth(mTiles[0].textureId);
 	float spriteHeight = X::GetSpriteHeight(mTiles[0].textureId);
 	X::Math::Vector2 pos;
@@ -123,7 +122,7 @@ void TileMap::Render() const
 			X::DrawSprite(mTiles[mMap[index]].textureId, pos, X::Pivot::TopLeft);
 			pos.x += spriteWidth;
 		}
-		pos.x = 0;
+		pos.x = 0.0f;
 		pos.y += spriteHeight;
 	}
 
@@ -136,9 +135,10 @@ void TileMap::Render() const
 			{
 				if (neighbor == nullptr)
 					continue;
+
 				const auto a = GetPixelPosition(node->column, node->row);
 				const auto b = GetPixelPosition(neighbor->column, neighbor->row);
-				X::DrawScreenLine(a, b, X::Colors::Red);
+				X::DrawScreenLine(a, b, X::Colors::DarkGray);
 			}
 		}
 	}
@@ -146,13 +146,52 @@ void TileMap::Render() const
 
 bool TileMap::IsBlock(int x, int y) const
 {
-	int index = ToIndex(x, y, mColumns);
-	if (index < mMap.size())
+	if (x >= 0 && x < mColumns && y >= 0 && y < mRows)
 	{
-		int tile = mMap[index];
-		return mTiles[tile].isBlock;
+		int index = ToIndex(x, y, mColumns);
+		if (index < mMap.size())
+		{
+			int tile = mMap[index];
+			return mTiles[tile].isBlock;
+		}
+		return true;
 	}
-	return true;
+}
+
+Path TileMap::FindPathBFS(int startX, int startY, int endX, int endY)
+{
+	Path path;
+	BFS bfs;
+	if (bfs.Run(mGraph, startX, startY, endX, endY))
+	{
+		const auto& closeList = bfs.GetCloseList();
+		auto node = closeList.back();
+		while (node != nullptr)
+		{
+			path.push_back(GetPixelPosition(node->column, node->row));
+			node = node->parent;
+		}
+		std::reverse(path.begin(), path.end());
+	}
+	return path;
+}
+
+Path TileMap::FindPathDFS(int startX, int startY, int endX, int endY)
+{
+	Path path;
+	DFS dfs;
+	if (dfs.Run(mGraph, startX, startY, endX, endY))
+	{
+		const auto& closeList = dfs.GetCloseList();
+		auto node = closeList.back();
+		while (node != nullptr)
+		{
+			path.push_back(GetPixelPosition(node->column, node->row));
+			node = node->parent;
+		}
+		std::reverse(path.begin(), path.end());
+	}
+	return path;
 }
 
 X::Math::Vector2 TileMap::GetPixelPosition(int x, int y) const
