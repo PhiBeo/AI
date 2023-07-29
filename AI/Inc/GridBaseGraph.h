@@ -27,15 +27,14 @@ namespace AI
 			bool opened = false;
 			bool closed = false;
 
-			float h = 0, g = 0;
+			float cost = 0.0f;
 
 			void Reset()
 			{
 				parent = nullptr;
 				opened = false;
 				closed = false;
-				h = 0;
-				g = 0;
+				cost = 0.0f;
 			}
 		};
 

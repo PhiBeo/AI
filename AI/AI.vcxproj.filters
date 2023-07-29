@@ -48,6 +48,9 @@
     <ClInclude Include="Inc\StateMachine.h">
       <Filter>Inc\FSM</Filter>
     </ClInclude>
+    <ClInclude Include="Inc\Dijkstra.h">
+      <Filter>Inc\Pathing</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\Precompiled.cpp">
@@ -63,6 +66,9 @@
       <Filter>Src\Pathing</Filter>
     </ClCompile>
     <ClCompile Include="Src\AStar.cpp">
+      <Filter>Src\Pathing</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Dijkstra.cpp">
       <Filter>Src\Pathing</Filter>
     </ClCompile>
   </ItemGroup>

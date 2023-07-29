@@ -194,6 +194,33 @@ Path TileMap::FindPathDFS(int startX, int startY, int endX, int endY)
 	return path;
 }
 
+Path TileMap::FindPathDijkstra(int startX, int startY, int endX, int endY)
+{
+	Path path;
+	Dijkstra dijkstra;
+	auto getCost = [](const GridBaseGraph::Node* node, const GridBaseGraph::Node* neighbor)
+	{
+		if (node->column != neighbor->column && node->row != neighbor->row)
+		{
+			return 1.5f;
+		}
+		return 1.0f;
+	};
+
+	if (dijkstra.Run(mGraph, startX, startY, endX, endY, getCost))
+	{
+		const auto& closeList = dijkstra.GetCloseList();
+		auto node = closeList.back();
+		while (node != nullptr)
+		{
+			path.push_back(GetPixelPosition(node->column, node->row));
+			node = node->parent;
+		}
+		std::reverse(path.begin(), path.end());
+	}
+	return path;
+}
+
 X::Math::Vector2 TileMap::GetPixelPosition(int x, int y) const
 {
 	return {
