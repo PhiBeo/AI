@@ -8,3 +8,7 @@
 #include "Dijkstra.h"
 #include "State.h"
 #include "StateMachine.h"
+
+//AI World
+#include "AIWorld.h"
+#include "Entity.h"

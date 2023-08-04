@@ -2,7 +2,7 @@
 #include <AI.h>
 
 
-enum GymerStates
+enum class GymerStates
 {
 	GoToGym,
 	EnterTheCaffetteria,
