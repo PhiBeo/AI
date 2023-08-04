@@ -4,5 +4,4 @@ A:\AI\Pathfinding\TileMap.cpp(114,21): warning C4244: 'initializing': conversion
   WinMain.cpp
   Generating Code...
 A:\AI\Pathfinding\TileMap.cpp(159): warning C4715: 'TileMap::IsBlock': not all control paths return a value
-     Creating library A:\AI\x64\Debug\Pathfinding.lib and object A:\AI\x64\Debug\Pathfinding.exp
   Pathfinding.vcxproj -> A:\AI\x64\Debug\Pathfinding.exe

@@ -1,0 +1,177 @@
+﻿  Gymer.cpp
+  The contents of <filesystem> are available only with C++17 or later.
+  The contents of <variant> are available only with C++17 or later.
+A:\AI\FSM\GymerStates.h(6,39): error C2065: 'Gymer': undeclared identifier
+A:\AI\FSM\GymerStates.h(6,33): error C2923: 'AI::State': 'Gymer' is not a valid template type argument for parameter 'AgentType'
+A:\AI\FSM\GymerStates.h(6): message : see declaration of 'Gymer'
+A:\AI\FSM\GymerStates.h(7,1): error C2955: 'AI::State': use of class template requires template argument list
+A:\AI\AI\Inc\State.h(8): message : see declaration of 'AI::State'
+A:\AI\FSM\GymerStates.h(9,13): error C2061: syntax error: identifier 'Gymer'
+A:\AI\FSM\GymerStates.h(14,14): error C2061: syntax error: identifier 'Gymer'
+A:\AI\FSM\GymerStates.h(28,12): error C2061: syntax error: identifier 'Gymer'
+A:\AI\FSM\GymerStates.h(9,7): error C3668: 'GoToGymState::Enter': method with override specifier 'override' did not override any base class methods
+A:\AI\FSM\GymerStates.h(14,7): error C3668: 'GoToGymState::Update': method with override specifier 'override' did not override any base class methods
+A:\AI\FSM\GymerStates.h(28,7): error C3668: 'GoToGymState::Exit': method with override specifier 'override' did not override any base class methods
+A:\AI\FSM\GymerStates.h(11,3): error C2065: 'agent': undeclared identifier
+A:\AI\FSM\GymerStates.h(11,21): error C2653: 'Gymer': is not a class or namespace name
+A:\AI\FSM\GymerStates.h(11,42): error C2065: 'Gym': undeclared identifier
+A:\AI\FSM\GymerStates.h(16,3): error C2065: 'agent': undeclared identifier
+A:\AI\FSM\GymerStates.h(17,3): error C2065: 'agent': undeclared identifier
+A:\AI\FSM\GymerStates.h(18,7): error C2065: 'agent': undeclared identifier
+A:\AI\FSM\GymerStates.h(20,4): error C2065: 'agent': undeclared identifier
+A:\AI\FSM\GymerStates.h(20,22): error C2653: 'GymerStates': is not a class or namespace name
+A:\AI\FSM\GymerStates.h(20,35): error C2065: 'EnterTheCaffetteria': undeclared identifier
+A:\AI\FSM\GymerStates.h(22,12): error C2065: 'agent': undeclared identifier
+A:\AI\FSM\GymerStates.h(24,4): error C2065: 'agent': undeclared identifier
+A:\AI\FSM\GymerStates.h(24,22): error C2653: 'GymerStates': is not a class or namespace name
+A:\AI\FSM\GymerStates.h(24,35): error C2065: 'GetSomeWater': undeclared identifier
+A:\AI\FSM\GymerStates.h(34,51): error C2065: 'Gymer': undeclared identifier
+A:\AI\FSM\GymerStates.h(34,45): error C2923: 'AI::State': 'Gymer' is not a valid template type argument for parameter 'AgentType'
+A:\AI\FSM\GymerStates.h(34): message : see declaration of 'Gymer'
+A:\AI\FSM\GymerStates.h(35,1): error C2955: 'AI::State': use of class template requires template argument list
+A:\AI\AI\Inc\State.h(8): message : see declaration of 'AI::State'
+A:\AI\FSM\GymerStates.h(37,13): error C2061: syntax error: identifier 'Gymer'
+A:\AI\FSM\GymerStates.h(42,14): error C2061: syntax error: identifier 'Gymer'
+A:\AI\FSM\GymerStates.h(55,12): error C2061: syntax error: identifier 'Gymer'
+A:\AI\FSM\GymerStates.h(37,7): error C3668: 'EnterTheCaffetteriaState::Enter': method with override specifier 'override' did not override any base class methods
+A:\AI\FSM\GymerStates.h(42,7): error C3668: 'EnterTheCaffetteriaState::Update': method with override specifier 'override' did not override any base class methods
+A:\AI\FSM\GymerStates.h(55,7): error C3668: 'EnterTheCaffetteriaState::Exit': method with override specifier 'override' did not override any base class methods
+A:\AI\FSM\GymerStates.h(39,3): error C2065: 'agent': undeclared identifier
+A:\AI\FSM\GymerStates.h(39,21): error C2653: 'Gymer': is not a class or namespace name
+A:\AI\FSM\GymerStates.h(39,42): error C2065: 'Caffetteria': undeclared identifier
+A:\AI\FSM\GymerStates.h(44,3): error C2065: 'agent': undeclared identifier
+A:\AI\FSM\GymerStates.h(45,8): error C2065: 'agent': undeclared identifier
+A:\AI\FSM\GymerStates.h(47,4): error C2065: 'agent': undeclared identifier
+A:\AI\FSM\GymerStates.h(47,22): error C2653: 'GymerStates': is not a class or namespace name
+A:\AI\FSM\GymerStates.h(47,35): error C2065: 'GoToGym': undeclared identifier
+A:\AI\FSM\GymerStates.h(49,12): error C2065: 'agent': undeclared identifier
+A:\AI\FSM\GymerStates.h(51,4): error C2065: 'agent': undeclared identifier
+A:\AI\FSM\GymerStates.h(51,22): error C2653: 'GymerStates': is not a class or namespace name
+A:\AI\FSM\GymerStates.h(51,35): error C2065: 'GoHomeAndSleep': undeclared identifier
+A:\AI\FSM\GymerStates.h(61,46): error C2065: 'Gymer': undeclared identifier
+A:\AI\FSM\GymerStates.h(61,40): error C2923: 'AI::State': 'Gymer' is not a valid template type argument for parameter 'AgentType'
+A:\AI\FSM\GymerStates.h(61): message : see declaration of 'Gymer'
+A:\AI\FSM\GymerStates.h(62,1): error C2955: 'AI::State': use of class template requires template argument list
+A:\AI\AI\Inc\State.h(8): message : see declaration of 'AI::State'
+A:\AI\FSM\GymerStates.h(64,13): error C2061: syntax error: identifier 'Gymer'
+A:\AI\FSM\GymerStates.h(69,14): error C2061: syntax error: identifier 'Gymer'
+A:\AI\FSM\GymerStates.h(79,12): error C2061: syntax error: identifier 'Gymer'
+A:\AI\FSM\GymerStates.h(64,7): error C3668: 'GoHomeAndSleepState::Enter': method with override specifier 'override' did not override any base class methods
+A:\AI\FSM\GymerStates.h(69,7): error C3668: 'GoHomeAndSleepState::Update': method with override specifier 'override' did not override any base class methods
+A:\AI\FSM\GymerStates.h(79,7): error C3668: 'GoHomeAndSleepState::Exit': method with override specifier 'override' did not override any base class methods
+A:\AI\FSM\GymerStates.h(66,3): error C2065: 'agent': undeclared identifier
+A:\AI\FSM\GymerStates.h(66,21): error C2653: 'Gymer': is not a class or namespace name
+A:\AI\FSM\GymerStates.h(66,42): error C2065: 'Home': undeclared identifier
+A:\AI\FSM\GymerStates.h(71,3): error C2065: 'agent': undeclared identifier
+A:\AI\FSM\GymerStates.h(73,7): error C2065: 'agent': undeclared identifier
+A:\AI\FSM\GymerStates.h(75,4): error C2065: 'agent': undeclared identifier
+A:\AI\FSM\GymerStates.h(75,22): error C2653: 'GymerStates': is not a class or namespace name
+A:\AI\FSM\GymerStates.h(75,35): error C2065: 'GoToGym': undeclared identifier
+A:\AI\FSM\GymerStates.h(85,44): error C2065: 'Gymer': undeclared identifier
+A:\AI\FSM\GymerStates.h(85,38): error C2923: 'AI::State': 'Gymer' is not a valid template type argument for parameter 'AgentType'
+A:\AI\FSM\GymerStates.h(85): message : see declaration of 'Gymer'
+A:\AI\FSM\GymerStates.h(86,1): error C2955: 'AI::State': use of class template requires template argument list
+A:\AI\AI\Inc\State.h(8): message : see declaration of 'AI::State'
+A:\AI\FSM\GymerStates.h(88,13): error C2061: syntax error: identifier 'Gymer'
+A:\AI\FSM\GymerStates.h(93,14): error C2061: syntax error: identifier 'Gymer'
+A:\AI\FSM\GymerStates.h(102,12): error C2061: syntax error: identifier 'Gymer'
+A:\AI\FSM\GymerStates.h(88,7): error C3668: 'GetSomeWaterState::Enter': method with override specifier 'override' did not override any base class methods
+A:\AI\FSM\GymerStates.h(93,7): error C3668: 'GetSomeWaterState::Update': method with override specifier 'override' did not override any base class methods
+A:\AI\FSM\GymerStates.h(102,7): error C3668: 'GetSomeWaterState::Exit': method with override specifier 'override' did not override any base class methods
+A:\AI\FSM\GymerStates.h(90,3): error C2065: 'agent': undeclared identifier
+A:\AI\FSM\GymerStates.h(90,21): error C2653: 'Gymer': is not a class or namespace name
+A:\AI\FSM\GymerStates.h(90,42): error C2065: 'WaterDispenser': undeclared identifier
+A:\AI\FSM\GymerStates.h(95,3): error C2065: 'agent': undeclared identifier
+A:\AI\FSM\GymerStates.h(96,8): error C2065: 'agent': undeclared identifier
+A:\AI\FSM\GymerStates.h(98,4): error C2065: 'agent': undeclared identifier
+A:\AI\FSM\GymerStates.h(98,22): error C2653: 'GymerStates': is not a class or namespace name
+A:\AI\FSM\GymerStates.h(98,35): error C2065: 'GoToGym': undeclared identifier
+  WinMain.cpp
+  The contents of <filesystem> are available only with C++17 or later.
+  The contents of <variant> are available only with C++17 or later.
+A:\AI\FSM\GymerStates.h(6,39): error C2065: 'Gymer': undeclared identifier
+A:\AI\FSM\GymerStates.h(6,33): error C2923: 'AI::State': 'Gymer' is not a valid template type argument for parameter 'AgentType'
+A:\AI\FSM\GymerStates.h(6): message : see declaration of 'Gymer'
+A:\AI\FSM\GymerStates.h(7,1): error C2955: 'AI::State': use of class template requires template argument list
+A:\AI\AI\Inc\State.h(8): message : see declaration of 'AI::State'
+A:\AI\FSM\GymerStates.h(9,13): error C2061: syntax error: identifier 'Gymer'
+A:\AI\FSM\GymerStates.h(14,14): error C2061: syntax error: identifier 'Gymer'
+A:\AI\FSM\GymerStates.h(28,12): error C2061: syntax error: identifier 'Gymer'
+A:\AI\FSM\GymerStates.h(9,7): error C3668: 'GoToGymState::Enter': method with override specifier 'override' did not override any base class methods
+A:\AI\FSM\GymerStates.h(14,7): error C3668: 'GoToGymState::Update': method with override specifier 'override' did not override any base class methods
+A:\AI\FSM\GymerStates.h(28,7): error C3668: 'GoToGymState::Exit': method with override specifier 'override' did not override any base class methods
+A:\AI\FSM\GymerStates.h(11,3): error C2065: 'agent': undeclared identifier
+A:\AI\FSM\GymerStates.h(11,21): error C2653: 'Gymer': is not a class or namespace name
+A:\AI\FSM\GymerStates.h(11,42): error C2065: 'Gym': undeclared identifier
+A:\AI\FSM\GymerStates.h(16,3): error C2065: 'agent': undeclared identifier
+A:\AI\FSM\GymerStates.h(17,3): error C2065: 'agent': undeclared identifier
+A:\AI\FSM\GymerStates.h(18,7): error C2065: 'agent': undeclared identifier
+A:\AI\FSM\GymerStates.h(20,4): error C2065: 'agent': undeclared identifier
+A:\AI\FSM\GymerStates.h(20,22): error C2653: 'GymerStates': is not a class or namespace name
+A:\AI\FSM\GymerStates.h(20,35): error C2065: 'EnterTheCaffetteria': undeclared identifier
+A:\AI\FSM\GymerStates.h(22,12): error C2065: 'agent': undeclared identifier
+A:\AI\FSM\GymerStates.h(24,4): error C2065: 'agent': undeclared identifier
+A:\AI\FSM\GymerStates.h(24,22): error C2653: 'GymerStates': is not a class or namespace name
+A:\AI\FSM\GymerStates.h(24,35): error C2065: 'GetSomeWater': undeclared identifier
+A:\AI\FSM\GymerStates.h(34,51): error C2065: 'Gymer': undeclared identifier
+A:\AI\FSM\GymerStates.h(34,45): error C2923: 'AI::State': 'Gymer' is not a valid template type argument for parameter 'AgentType'
+A:\AI\FSM\GymerStates.h(34): message : see declaration of 'Gymer'
+A:\AI\FSM\GymerStates.h(35,1): error C2955: 'AI::State': use of class template requires template argument list
+A:\AI\AI\Inc\State.h(8): message : see declaration of 'AI::State'
+A:\AI\FSM\GymerStates.h(37,13): error C2061: syntax error: identifier 'Gymer'
+A:\AI\FSM\GymerStates.h(42,14): error C2061: syntax error: identifier 'Gymer'
+A:\AI\FSM\GymerStates.h(55,12): error C2061: syntax error: identifier 'Gymer'
+A:\AI\FSM\GymerStates.h(37,7): error C3668: 'EnterTheCaffetteriaState::Enter': method with override specifier 'override' did not override any base class methods
+A:\AI\FSM\GymerStates.h(42,7): error C3668: 'EnterTheCaffetteriaState::Update': method with override specifier 'override' did not override any base class methods
+A:\AI\FSM\GymerStates.h(55,7): error C3668: 'EnterTheCaffetteriaState::Exit': method with override specifier 'override' did not override any base class methods
+A:\AI\FSM\GymerStates.h(39,3): error C2065: 'agent': undeclared identifier
+A:\AI\FSM\GymerStates.h(39,21): error C2653: 'Gymer': is not a class or namespace name
+A:\AI\FSM\GymerStates.h(39,42): error C2065: 'Caffetteria': undeclared identifier
+A:\AI\FSM\GymerStates.h(44,3): error C2065: 'agent': undeclared identifier
+A:\AI\FSM\GymerStates.h(45,8): error C2065: 'agent': undeclared identifier
+A:\AI\FSM\GymerStates.h(47,4): error C2065: 'agent': undeclared identifier
+A:\AI\FSM\GymerStates.h(47,22): error C2653: 'GymerStates': is not a class or namespace name
+A:\AI\FSM\GymerStates.h(47,35): error C2065: 'GoToGym': undeclared identifier
+A:\AI\FSM\GymerStates.h(49,12): error C2065: 'agent': undeclared identifier
+A:\AI\FSM\GymerStates.h(51,4): error C2065: 'agent': undeclared identifier
+A:\AI\FSM\GymerStates.h(51,22): error C2653: 'GymerStates': is not a class or namespace name
+A:\AI\FSM\GymerStates.h(51,35): error C2065: 'GoHomeAndSleep': undeclared identifier
+A:\AI\FSM\GymerStates.h(61,46): error C2065: 'Gymer': undeclared identifier
+A:\AI\FSM\GymerStates.h(61,40): error C2923: 'AI::State': 'Gymer' is not a valid template type argument for parameter 'AgentType'
+A:\AI\FSM\GymerStates.h(61): message : see declaration of 'Gymer'
+A:\AI\FSM\GymerStates.h(62,1): error C2955: 'AI::State': use of class template requires template argument list
+A:\AI\AI\Inc\State.h(8): message : see declaration of 'AI::State'
+A:\AI\FSM\GymerStates.h(64,13): error C2061: syntax error: identifier 'Gymer'
+A:\AI\FSM\GymerStates.h(69,14): error C2061: syntax error: identifier 'Gymer'
+A:\AI\FSM\GymerStates.h(79,12): error C2061: syntax error: identifier 'Gymer'
+A:\AI\FSM\GymerStates.h(64,7): error C3668: 'GoHomeAndSleepState::Enter': method with override specifier 'override' did not override any base class methods
+A:\AI\FSM\GymerStates.h(69,7): error C3668: 'GoHomeAndSleepState::Update': method with override specifier 'override' did not override any base class methods
+A:\AI\FSM\GymerStates.h(79,7): error C3668: 'GoHomeAndSleepState::Exit': method with override specifier 'override' did not override any base class methods
+A:\AI\FSM\GymerStates.h(66,3): error C2065: 'agent': undeclared identifier
+A:\AI\FSM\GymerStates.h(66,21): error C2653: 'Gymer': is not a class or namespace name
+A:\AI\FSM\GymerStates.h(66,42): error C2065: 'Home': undeclared identifier
+A:\AI\FSM\GymerStates.h(71,3): error C2065: 'agent': undeclared identifier
+A:\AI\FSM\GymerStates.h(73,7): error C2065: 'agent': undeclared identifier
+A:\AI\FSM\GymerStates.h(75,4): error C2065: 'agent': undeclared identifier
+A:\AI\FSM\GymerStates.h(75,22): error C2653: 'GymerStates': is not a class or namespace name
+A:\AI\FSM\GymerStates.h(75,35): error C2065: 'GoToGym': undeclared identifier
+A:\AI\FSM\GymerStates.h(85,44): error C2065: 'Gymer': undeclared identifier
+A:\AI\FSM\GymerStates.h(85,38): error C2923: 'AI::State': 'Gymer' is not a valid template type argument for parameter 'AgentType'
+A:\AI\FSM\GymerStates.h(85): message : see declaration of 'Gymer'
+A:\AI\FSM\GymerStates.h(86,1): error C2955: 'AI::State': use of class template requires template argument list
+A:\AI\AI\Inc\State.h(8): message : see declaration of 'AI::State'
+A:\AI\FSM\GymerStates.h(88,13): error C2061: syntax error: identifier 'Gymer'
+A:\AI\FSM\GymerStates.h(93,14): error C2061: syntax error: identifier 'Gymer'
+A:\AI\FSM\GymerStates.h(102,12): error C2061: syntax error: identifier 'Gymer'
+A:\AI\FSM\GymerStates.h(88,7): error C3668: 'GetSomeWaterState::Enter': method with override specifier 'override' did not override any base class methods
+A:\AI\FSM\GymerStates.h(93,7): error C3668: 'GetSomeWaterState::Update': method with override specifier 'override' did not override any base class methods
+A:\AI\FSM\GymerStates.h(102,7): error C3668: 'GetSomeWaterState::Exit': method with override specifier 'override' did not override any base class methods
+A:\AI\FSM\GymerStates.h(90,3): error C2065: 'agent': undeclared identifier
+A:\AI\FSM\GymerStates.h(90,21): error C2653: 'Gymer': is not a class or namespace name
+A:\AI\FSM\GymerStates.h(90,42): error C2065: 'WaterDispenser': undeclared identifier
+A:\AI\FSM\GymerStates.h(95,3): error C2065: 'agent': undeclared identifier
+A:\AI\FSM\GymerStates.h(96,8): error C2065: 'agent': undeclared identifier
+A:\AI\FSM\GymerStates.h(98,4): error C2065: 'agent': undeclared identifier
+A:\AI\FSM\GymerStates.h(98,22): error C2653: 'GymerStates': is not a class or namespace name
+A:\AI\FSM\GymerStates.h(98,35): error C2065: 'GoToGym': undeclared identifier
+  Generating Code...

@@ -15,8 +15,8 @@ namespace AI
 		template<class NewState>
 		void AddState()
 		{
-			static_assert(std::is_base_of_v<StateType, NewState>, "StateMachine: can only add one state");
-			mStates.push_back(std::make_unique<NewStateType>());
+			static_assert(std::is_base_of_v<State<AgentType>, NewState>, "StateMachine: can only add statetype");
+			mStates.push_back(std::make_unique<NewState>());
 		}
 		void Update(float deltaTime)
 		{
@@ -37,7 +37,7 @@ namespace AI
 
 	private:
 		AgentType& mAgent;
-		StateType* mCurrentState = nullptr;
-		std::vector<std::unique_ptr<StateType>> mStates;
+		State<AgentType>* mCurrentState = nullptr;
+		std::vector<std::unique_ptr<State<AgentType>>> mStates;
 	};
 }
