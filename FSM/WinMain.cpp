@@ -12,7 +12,15 @@ void GameInit()
 
 bool GameLoop(float deltaTime)
 {
-	gymer.Update(deltaTime);
+	if(X::IsKeyPressed(X::Keys::SPACE))
+		gymer.Update(deltaTime);
+
+	ImGui::Begin("StateMachine");
+
+	gymer.DebugUI();
+	ImGui::Text("Stat: Energy [%d], Thirst [%d], Workout Time [%d]", gymer.GetEnergy(), gymer.GetThirst(), gymer.GetWorkoutTime());
+
+	ImGui::End();
 
 	const bool quit = X::IsKeyPressed(X::Keys::ESCAPE);
 	return quit;

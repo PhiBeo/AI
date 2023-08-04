@@ -25,6 +25,13 @@ namespace AI
 				mCurrentState->Update(mAgent, deltaTime);
 			}
 		}
+		void DebugUI()
+		{
+			if (mCurrentState != nullptr)
+			{
+				mCurrentState->DebugUI(mAgent);
+			}
+		}
 		void ChangeState(int index)
 		{
 			if (mCurrentState != nullptr)

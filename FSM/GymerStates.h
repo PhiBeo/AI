@@ -2,6 +2,9 @@
 #include "AI.h"
 
 #include "Gymer.h"
+#include "ImGui/Inc/imgui.h"
+
+using namespace AI;
 
 class GoToGymState : public AI::State<Gymer>
 {
@@ -13,8 +16,6 @@ public:
 
 	void Update(Gymer& agent, float deltaTime) override
 	{
-		agent.DecreaseEnergy(1);
-		agent.IncreaseHour();
 		if (agent.IsTired())
 		{
 			agent.ChangeState(GymerStates::EnterTheCaffetteria);
@@ -23,6 +24,15 @@ public:
 		{
 			agent.ChangeState(GymerStates::GetSomeWater);
 		}
+
+		agent.IncreaseHour();
+		agent.ConsumeEnergy();
+		agent.IncreaseThirst();
+	}
+
+	void DebugUI(Gymer& agent) override
+	{
+		ImGui::Text("Gymer is in the gym");
 	}
 
 	void Exit(Gymer& agent) override
@@ -52,6 +62,11 @@ public:
 		}
 	}
 
+	void DebugUI(Gymer& agent) override
+	{
+		ImGui::Text("Gymer is in the caffetteria");
+	}
+
 	void Exit(Gymer& agent) override
 	{
 		//empty
@@ -72,8 +87,14 @@ public:
 
 		if (agent.IsSleeped())
 		{
+
 			agent.ChangeState(GymerStates::GoToGym);
 		}
+	}
+
+	void DebugUI(Gymer& agent) override
+	{
+		ImGui::Text("Gymer is in his home");
 	}
 
 	void Exit(Gymer& agent) override
@@ -97,6 +118,11 @@ public:
 		{
 			agent.ChangeState(GymerStates::GoToGym);
 		}
+	}
+
+	void DebugUI(Gymer& agent) override
+	{
+		ImGui::Text("Gymer is having some protein");
 	}
 
 	void Exit(Gymer& agent) override

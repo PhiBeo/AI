@@ -1,7 +1,6 @@
 #pragma once
 #include <AI.h>
 
-#include "GymerStates.h"
 
 enum GymerStates
 {
@@ -27,6 +26,7 @@ public:
 	void Initialize();
 	void Terminate();
 	void Update(float deltaTime);
+	void DebugUI();
 	void ChangeState(GymerStates pNewState);
 
 	void SetLocation(LocationType location);
@@ -38,12 +38,16 @@ public:
 
 	void IncreaseHour();
 	void IncreaseThirst();
-	void DecreaseEnergy(int amount);
+	void ConsumeEnergy();
 	void Awake();
 
 	void ResetEnergy();
 	void Sleeped();
 	void ResetThirst();
+
+	int GetEnergy() { return mEnergy; }
+	int GetThirst() { return mthirst; }
+	int GetWorkoutTime() { return mWorkoutTime; }
 
 private:
 	AI::StateMachine<Gymer>* mStateMachine;

@@ -1,11 +1,12 @@
 #include "Gymer.h"
+#include "GymerStates.h"
 
 void Gymer::Initialize()
 {
 	mLocation = LocationType::Home;
 	mthirst = 0;
 	msleeped = false;
-	mEnergy = 180;
+	mEnergy = 0;
 	mWorkoutTime = 0;
 
 	mStateMachine = new AI::StateMachine<Gymer>(*this);
@@ -28,6 +29,11 @@ void Gymer::Update(float deltaTime)
 	mStateMachine->Update(deltaTime);
 }
 
+void Gymer::DebugUI()
+{
+	mStateMachine->DebugUI();
+}
+
 void Gymer::ChangeState(GymerStates pNewState)
 {
 	mStateMachine->ChangeState((int)pNewState);
@@ -40,12 +46,12 @@ void Gymer::SetLocation(LocationType location)
 
 bool Gymer::IsEnoughHour()
 {
-	return mWorkoutTime > 180;
+	return mWorkoutTime > 20;
 }
 
 bool Gymer::IsTired()
 {
-	return mEnergy <= 0;
+	return mEnergy >= 8;
 }
 
 bool Gymer::IsSleeped()
@@ -55,7 +61,7 @@ bool Gymer::IsSleeped()
 
 bool Gymer::IsThirsty()
 {
-	return mthirst > 100;
+	return mthirst >= 4;
 }
 
 void Gymer::IncreaseHour()
@@ -65,12 +71,12 @@ void Gymer::IncreaseHour()
 
 void Gymer::IncreaseThirst()
 {
-	mthirst += 1;
+	mthirst++;
 }
 
-void Gymer::DecreaseEnergy(int amount)
+void Gymer::ConsumeEnergy()
 {
-	mEnergy -= amount;
+	mEnergy++;
 }
 
 void Gymer::Awake()
@@ -80,12 +86,15 @@ void Gymer::Awake()
 
 void Gymer::ResetEnergy()
 {
-	mEnergy = 180;
+	mEnergy = 0;
 }
 
 void Gymer::Sleeped()
 {
 	msleeped = true;
+	mWorkoutTime = 0;
+	mthirst = 0;
+	mEnergy = 0;
 }
 
 void Gymer::ResetThirst()

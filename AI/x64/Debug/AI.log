@@ -1,5 +1,1 @@
-﻿  Dijkstra.cpp
-A:\AI\AI\Src\Dijkstra.cpp(34,14): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-A:\AI\AI\Src\Dijkstra.cpp(40,23): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-A:\AI\AI\Src\Dijkstra.cpp(45,23): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-  AI.vcxproj -> A:\AI\x64\Debug\AI.lib
+﻿  AI.vcxproj -> C:\Users\LCV2042835\Documents\GitHub\AI\x64\Debug\AI.lib
