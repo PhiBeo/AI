@@ -23,6 +23,7 @@ public:
 	Path FindPathBFS(int startX, int startY, int endX, int endY);
 	Path FindPathDFS(int startX, int startY, int endX, int endY);
 	Path FindPathDijkstra(int startX, int startY, int endX, int endY);
+	Path FindAStar(int startX, int startY, int endX, int endY);
 
 	int GetColumns() const { return mColumns; }
 	int GetRows() const { return mRows; }
