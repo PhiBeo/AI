@@ -55,7 +55,7 @@ bool AI::AStar::Run(GridBaseGraph& graph, int startX, int startY, int endX, int 
 		mOpenList.sort(costSort);
 
 		mCloseList.push_back(node);
-		node->closed;
+		node->closed = true;
 	}
 
 	return found;

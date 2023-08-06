@@ -54,7 +54,7 @@ bool AI::Dijkstra::Run(GridBaseGraph& graph, int startX, int startY, int endX, i
 		mOpenList.sort(costSort);
 
 		mCloseList.push_back(node);
-		node->closed;
+		node->closed = true;
 	}
 
 	return found;

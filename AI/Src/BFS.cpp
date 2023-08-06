@@ -38,7 +38,7 @@ bool BFS::Run(GridBaseGraph& graph, int startX, int startY, int endX, int endY)
 		}
 
 		mCloseList.push_back(node);
-		node->closed;
+		node->closed = true;
 	}
 
 	return found;
