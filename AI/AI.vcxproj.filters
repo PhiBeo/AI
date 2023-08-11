@@ -19,6 +19,12 @@
     <Filter Include="Src\FSM">
       <UniqueIdentifier>{60eac72f-0848-4e54-8bdb-7e5d0e7ecc03}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Inc\Steering">
+      <UniqueIdentifier>{8b138601-2935-408b-9fc4-07a2eb8a597e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Steering">
+      <UniqueIdentifier>{522ca39b-45cf-4c6f-b452-97f34f3339ef}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Inc\AI.h">
@@ -60,6 +66,12 @@
     <ClInclude Include="Inc\Agent.h">
       <Filter>Inc</Filter>
     </ClInclude>
+    <ClInclude Include="Inc\SteeringBehavior.h">
+      <Filter>Inc\Steering</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\SteeringModule.h">
+      <Filter>Inc\Steering</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\Precompiled.cpp">
@@ -88,6 +100,9 @@
     </ClCompile>
     <ClCompile Include="Src\Agent.cpp">
       <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\SteeringModule.cpp">
+      <Filter>Src\Steering</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

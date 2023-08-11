@@ -24,6 +24,10 @@ public:
 		{
 			agent.ChangeState(GymerStates::GetSomeWater);
 		}
+		else if (agent.IsEnoughHour())
+		{
+			agent.ChangeState(GymerStates::EnterTheCaffetteria);
+		}
 
 		agent.IncreaseHour();
 		agent.ConsumeEnergy();
