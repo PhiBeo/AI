@@ -2,7 +2,6 @@
 
 #include "Common.h"
 
-
 //pathing
 #include "GridBaseGraph.h"
 #include "BFS.h"
@@ -18,5 +17,7 @@
 #include "Agent.h"
 
 //Steering
-#include "SteeringBehavior.h"
 #include "SteeringModule.h"
+#include "SteeringBehavior.h"
+#include "WanderBehavior.h"
+#include "SeekBehavior.h"

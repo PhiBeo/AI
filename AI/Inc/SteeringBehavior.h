@@ -10,7 +10,7 @@ namespace AI
 	public:
 		virtual ~SteeringBehavior() = default;
 
-		virtual X::Math::Vector2 Calculator(Agent& agent) = 0;
+		virtual X::Math::Vector2 Calculate(Agent& agent) = 0;
 
 		void SetWeight(float weight) { mWeight = weight; }
 		float GetWeight() { return mWeight; }

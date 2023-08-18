@@ -21,9 +21,14 @@ namespace AI
 		Entity& operator=(const Entity&&) = delete;
 
 		AIWorld& world;
+
+		X::Math::Vector2 position = X::Math::Vector2::Zero();
+		X::Math::Vector2 heading = X::Math::Vector2::YAxis();
+
+		X::Math::Matrix3 GetWorldTransform() const;
 		
 		uint32_t GetTypeId() const { return static_cast<uint32_t>(mUniqueId >> 32); }
-
+		uint64_t GetUniqueID() const { return mUniqueId; }
 	private:
 		const uint64_t mUniqueId = 0;
 	};

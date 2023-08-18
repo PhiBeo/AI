@@ -17,7 +17,7 @@ namespace AI
 			return static_cast<NewBehaviorType*>(newBehavior.get());
 		}
 
-		X::Math::Vector2 Calculator();
+		X::Math::Vector2 Calculate();
 
 
 	private:

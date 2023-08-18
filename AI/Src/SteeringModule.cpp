@@ -6,10 +6,9 @@ using namespace AI;
 SteeringModule::SteeringModule(Agent& agent)
 	: mAgent(agent)
 {
-
 }
 
-X::Math::Vector2 SteeringModule::Calculator()
+X::Math::Vector2 SteeringModule::Calculate()
 {
 	X::Math::Vector2 totalForce;
 
@@ -17,7 +16,7 @@ X::Math::Vector2 SteeringModule::Calculator()
 	{
 		if (behavior->IsActive())
 		{
-			totalForce += behavior->Calculator(mAgent) * behavior->GetWeight();
+			totalForce += behavior->Calculate(mAgent) * behavior->GetWeight();
 		}
 	}
 	return totalForce;
