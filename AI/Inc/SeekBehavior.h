@@ -12,4 +12,13 @@ namespace AI
 	private:
 
 	};
+
+	class FleeBehavior : public SteeringBehavior
+	{
+	public:
+		X::Math::Vector2 Calculate(Agent& agent) override;
+
+	private:
+		float panicDistance = 100.0f;
+	};
 }

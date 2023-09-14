@@ -21,9 +21,9 @@ namespace AI
 		Entity& operator=(const Entity&&) = delete;
 
 		AIWorld& world;
-
 		X::Math::Vector2 position = X::Math::Vector2::Zero();
 		X::Math::Vector2 heading = X::Math::Vector2::YAxis();
+		float radius = 1.0f;
 
 		X::Math::Matrix3 GetWorldTransform() const;
 		

@@ -1,5 +1,2 @@
-﻿  Agent.cpp
-  SeekBehavior.cpp
-  Generating Code...
-C:\Users\LCV2042835\Documents\GitHub\AI\AI\Src\SeekBehavior.cpp(26): warning C4715: 'AI::SeekBehavior::Calculate': not all control paths return a value
-  AI.vcxproj -> C:\Users\LCV2042835\Documents\GitHub\AI\x64\Debug\AI.lib
+﻿  GroupBehavior.cpp
+  AI.vcxproj -> A:\AI\x64\Debug\AI.lib

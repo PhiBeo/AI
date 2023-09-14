@@ -1,7 +1,1 @@
-﻿  Peon.cpp
-C:\Users\LCV2042835\Documents\GitHub\AI\Steering\Peon.cpp(56,16): warning C4244: '=': conversion from 'const uint32_t' to 'float', possible loss of data
-C:\Users\LCV2042835\Documents\GitHub\AI\Steering\Peon.cpp(60,16): warning C4244: '=': conversion from 'const uint32_t' to 'float', possible loss of data
-C:\Users\LCV2042835\Documents\GitHub\AI\Steering\Peon.cpp(64,16): warning C4244: '=': conversion from 'const uint32_t' to 'float', possible loss of data
-C:\Users\LCV2042835\Documents\GitHub\AI\Steering\Peon.cpp(68,16): warning C4244: '=': conversion from 'const uint32_t' to 'float', possible loss of data
-     Creating library C:\Users\LCV2042835\Documents\GitHub\AI\x64\Debug\Steering.lib and object C:\Users\LCV2042835\Documents\GitHub\AI\x64\Debug\Steering.exp
-  Steering.vcxproj -> C:\Users\LCV2042835\Documents\GitHub\AI\x64\Debug\Steering.exe
+﻿  Steering.vcxproj -> A:\AI\x64\Debug\Steering.exe

@@ -17,6 +17,8 @@
 #include "Agent.h"
 
 //Steering
+#include "ArriveBehavior.h"
+#include "GroupBehavior.h"
 #include "SteeringModule.h"
 #include "SteeringBehavior.h"
 #include "WanderBehavior.h"

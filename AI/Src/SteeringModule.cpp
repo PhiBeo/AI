@@ -19,5 +19,6 @@ X::Math::Vector2 SteeringModule::Calculate()
 			totalForce += behavior->Calculate(mAgent) * behavior->GetWeight();
 		}
 	}
+	
 	return totalForce;
 }

@@ -1,9 +1,9 @@
 #include "Peon.h"
 #include "TypeIds.h"
 
-float wanderJitter = 5.0f;
-float wanderRadius = 20.0f;
-float wanderDistance = 50.0f;
+extern float wanderJitter;
+extern float wanderRadius;
+extern float wanderDistance;
 
 Peon::Peon(AI::AIWorld& world)
 	: Agent(world, Types::PeonId)
@@ -13,9 +13,17 @@ Peon::Peon(AI::AIWorld& world)
 void Peon::Load()
 {
 	mSteeringModule = std::make_unique<AI::SteeringModule>(*this);
-	//mSeekBehavior = mSteeringModule->AddBehavior<AI::SeekBehavior>();
+	mFleeBehavior = mSteeringModule->AddBehavior<AI::FleeBehavior>();
+	mSeekBehavior = mSteeringModule->AddBehavior<AI::SeekBehavior>();
 	mWanderBehavior = mSteeringModule->AddBehavior<AI::WanderBehivior>();
+	mArriveBehavior = mSteeringModule->AddBehavior<AI::ArriveBehavior>();
+	mSeperationBehavior = mSteeringModule->AddBehavior<AI::SeperationBehavior>();
+	mAlignmentBehavior = mSteeringModule->AddBehavior<AI::AlignmentBehavior>();
+	mCohesionBehavior = mSteeringModule->AddBehavior<AI::CohesionBehavior>();
 	mWanderBehavior->SetActive(true);
+	mSeperationBehavior->SetActive(true);
+	mAlignmentBehavior->SetActive(true);
+	mCohesionBehavior->SetActive(true);
 
 	for (int i = 0; i < mTextureIds.size(); ++i)
 	{
@@ -23,6 +31,9 @@ void Peon::Load()
 		sprintf_s(name, "scv_%02i.png", i + 1);
 		mTextureIds[i] = X::LoadTexture(name);
 	}
+
+	float spriteWidth = X::GetSpriteWidth(mTextureIds[0]);
+	radius = (spriteWidth * 0.5f) + 5.0f;
 }
 
 void Peon::Unload()
@@ -51,21 +62,21 @@ void Peon::Update(float deltaTime)
 	const auto screenWidth = X::GetScreenWidth();
 	const auto screenHeight = X::GetScreenHeight();
 
-	if (position.x < .0f)
+	if (position.x < 0.0f)
 	{
-		position.x = screenWidth;
+		position.x += screenWidth;
 	}
-	if (position.x > screenWidth)
+	if (position.x >= screenWidth)
 	{
-		position.x = screenWidth;
+		position.x -= screenWidth;
 	}
 	if (position.y < .0f)
 	{
-		position.y = screenHeight;
+		position.y += screenHeight;
 	}
-	if (position.y < screenHeight)
+	if (position.y >= screenHeight)
 	{
-		position.y = screenHeight;
+		position.y -= screenHeight;
 	}
 
 }
@@ -81,5 +92,11 @@ void Peon::Render()
 
 void Peon::ShowDebug(bool debug)
 {
-	mWanderBehavior->IsDebug();
+	mWanderBehavior->ShowDebug(debug);
+	mSeekBehavior->ShowDebug(debug);
+	mFleeBehavior->ShowDebug(debug);
+	mArriveBehavior->ShowDebug(debug);
+	mSeperationBehavior->ShowDebug(debug);
+	mAlignmentBehavior->ShowDebug(debug);
+	mCohesionBehavior->ShowDebug(debug);
 }
