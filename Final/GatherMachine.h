@@ -1,5 +1,4 @@
 #pragma once
-
 #include <AI.h>
 
 #include "VisualSensor.h"
@@ -37,13 +36,14 @@ public:
 	void SetFarm(X::Math::Vector2 pos) { farmPosition = pos; }
 	void FinishFood() { mFoundFood = false; }
 
+
+	AI::StateMachine<GatherMachine>* GetStateMachine() { return mStateMachine; }
 	X::Math::Vector2 GetFarmPos() { return farmPosition; }
 	X::Math::Vector2 GetHomePos() { return homePosition; }
 	bool HasFoundFood() { return mFoundFood; }
-	bool HasReachFarm() { return position.x == farmPosition.x && position.y == farmPosition.y; }
 	bool EnoughFood() { return currentFood >= foodCapacity; }
-	bool IsHome() { return position.x == homePosition.x && position.y == homePosition.y; }
-	bool IsNearChaser() {return X::Math::Distance(position, target->position) <= mFleeBehavior->GetPanicDistance()}
+	bool IsReach(Types type);
+	bool IsNearChaser() { return X::Math::Distance(position, target->position) <= mFleeBehavior->GetPanicDistance(); }
 
 	float currentFood = 0;
 private:
@@ -63,13 +63,13 @@ private:
 	float mWanderDistance = 50.f;
 	float mWanderJitter = 5.f;
 
-	float mViewRange;
-	float mViewAngle;
+	float mViewRange = 100.0f;
+	float mViewAngle = 30.f;
 
 	X::Math::Vector2 homePosition;
 	X::Math::Vector2 farmPosition;
 
 	bool mFoundFood = false;
 
-	float foodCapacity = 50.f;
+	float foodCapacity = 10.f;
 };

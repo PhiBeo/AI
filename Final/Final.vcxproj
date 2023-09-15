@@ -143,8 +143,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ChaseMachine.cpp" />
     <ClCompile Include="Food.cpp" />
     <ClCompile Include="GatherMachine.cpp" />
+    <ClCompile Include="Home.cpp" />
     <ClCompile Include="VisualSensor.cpp" />
     <ClCompile Include="WinMain.cpp" />
   </ItemGroup>
@@ -160,9 +162,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ChaseMachine.h" />
+    <ClInclude Include="ChaseMachineStates.h" />
     <ClInclude Include="Food.h" />
     <ClInclude Include="GatherMachine.h" />
     <ClInclude Include="GatherMachineStates.h" />
+    <ClInclude Include="Home.h" />
     <ClInclude Include="TypeIds.h" />
     <ClInclude Include="VisualSensor.h" />
   </ItemGroup>

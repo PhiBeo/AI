@@ -1,7 +1,6 @@
 #include "GatherMachine.h"
 #include "TypeIds.h"
 #include "GatherMachineStates.h"
-
 #include "VisualSensor.h"
 #include "MemoryRecord.h"
 
@@ -23,11 +22,15 @@ void GatherMachine::Load()
 	mPerceptionModule = std::make_unique<AI::PerceptionModule>(*this, ComputeImportance);
 	mVisualSensor = mPerceptionModule->AddSensor<VisualSensor>();
 	mVisualSensor->targetType = Types::FoodId;
+	mPerceptionModule->SetMemorySpan(2.f);
 
 	mSteeringModule = std::make_unique<AI::SteeringModule>(*this);
 	mSeekBehavior = mSteeringModule->AddBehavior<AI::SeekBehavior>();
 	mWanderBehavior = mSteeringModule->AddBehavior<AI::WanderBehivior>();
 	mFleeBehavior = mSteeringModule->AddBehavior<AI::FleeBehavior>();
+	mWanderBehavior->SetActive(true);
+
+	mStateMachine = new AI::StateMachine<GatherMachine>(*this);
 	
 	for (int i = 0; i < mTextureIds.size(); ++i)
 	{
@@ -45,6 +48,9 @@ void GatherMachine::Load()
 	mStateMachine->AddState<ProcessRawFoodState>();
 	mStateMachine->AddState<FleeFromChaserState>();
 	mStateMachine->ChangeState(0);
+
+	position = X::RandomVector2({ 100.f, 100.f }, { X::GetScreenWidth() - 100.f, X::GetScreenHeight() - 100.f });
+	maxSpeed = 200.0f;
 }
 
 void GatherMachine::Unload()
@@ -55,6 +61,9 @@ void GatherMachine::Unload()
 
 void GatherMachine::Update(float deltaTime)
 {
+	mVisualSensor->viewRange = mViewRange;
+	mVisualSensor->viewHalfAngle = mViewAngle * X::Math::kDegToRad;
+
 	mStateMachine->Update(deltaTime);
 	mPerceptionModule->Update(deltaTime);
 
@@ -110,14 +119,36 @@ void GatherMachine::Render()
 	const float percent = angle / X::Math::kTwoPi;
 	const int frame = static_cast<int>(percent * mTextureIds.size()) % mTextureIds.size();
 
+	X::Math::Circle pos;
+	pos.center = position;
+	pos.radius = radius;
+
+	X::DrawScreenCircle(pos, X::Colors::AntiqueWhite);
+
 	X::DrawSprite(mTextureIds[frame], position);
 }
 
 void GatherMachine::ShowDebug(bool debug)
 {
+	mWanderBehavior->ShowDebug(debug);
+	mFleeBehavior->ShowDebug(debug);
+	mSeekBehavior->ShowDebug(debug);
 }
 
 void GatherMachine::ChangeState(GatherMachineStates pNewState)
 {
 	mStateMachine->ChangeState((int)pNewState);
+}
+
+bool GatherMachine::IsReach(Types type)
+{
+	X::Math::Circle selfBox;
+	selfBox.center = position;
+	selfBox.radius = radius;
+
+	auto entities = world.GetEntitiesInRange(selfBox, type);
+
+	if (!entities.empty()) return true;
+
+	return false;
 }

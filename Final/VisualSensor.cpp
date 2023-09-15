@@ -45,7 +45,7 @@ void VisualSensor::Update(AI::Agent& agent, AI::MemoryRecords& memory, float del
 		{
 			auto& newRecord = memory.emplace_back();
 			newRecord.uniqueId = entity->GetUniqueID();
-			newRecord.properties["lastSeebPosition"] = entity->position;
+			newRecord.properties["lastSeenPosition"] = entity->position;
 			newRecord.lastRecordTime = X::GetTime();
 		}	
 	}

@@ -20,6 +20,6 @@ namespace AI
 		float GetPanicDistance() { return panicDistance; }
 
 	private:
-		float panicDistance = 100.0f;
+		float panicDistance = 250.0f;
 	};
 }
