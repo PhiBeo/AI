@@ -1,9 +1,25 @@
 #include "Peon.h"
 #include "TypeIds.h"
 
+#include "VisualSensor.h"
+#include "MemoryRecord.h"
+
 extern float wanderJitter;
 extern float wanderRadius;
 extern float wanderDistance;
+
+extern float viewRange;
+extern float viewAngle;
+
+namespace
+{
+	float ComputeImportance(const AI::Agent& agent, const AI::MemoryRecord& record)
+	{
+		float distance = X::Math::Distance(agent.position, record.GetProperty<X::Math::Vector2>("lastSeenPosition"));
+		float distanceScore = 100000.0f - distance;
+		return distanceScore;
+	}
+}
 
 Peon::Peon(AI::AIWorld& world)
 	: Agent(world, Types::PeonId)
@@ -12,18 +28,13 @@ Peon::Peon(AI::AIWorld& world)
 
 void Peon::Load()
 {
+	mPerceptionModule = std::make_unique<AI::PerceptionModule>(*this, ComputeImportance);
+	mVisualSensor = mPerceptionModule->AddSensor<VisualSensor>();
+	
 	mSteeringModule = std::make_unique<AI::SteeringModule>(*this);
-	mFleeBehavior = mSteeringModule->AddBehavior<AI::FleeBehavior>();
 	mSeekBehavior = mSteeringModule->AddBehavior<AI::SeekBehavior>();
 	mWanderBehavior = mSteeringModule->AddBehavior<AI::WanderBehivior>();
-	mArriveBehavior = mSteeringModule->AddBehavior<AI::ArriveBehavior>();
-	mSeperationBehavior = mSteeringModule->AddBehavior<AI::SeperationBehavior>();
-	mAlignmentBehavior = mSteeringModule->AddBehavior<AI::AlignmentBehavior>();
-	mCohesionBehavior = mSteeringModule->AddBehavior<AI::CohesionBehavior>();
 	mWanderBehavior->SetActive(true);
-	mSeperationBehavior->SetActive(true);
-	mAlignmentBehavior->SetActive(true);
-	mCohesionBehavior->SetActive(true);
 
 	for (int i = 0; i < mTextureIds.size(); ++i)
 	{
@@ -43,6 +54,11 @@ void Peon::Unload()
 
 void Peon::Update(float deltaTime)
 {
+	mVisualSensor->viewRange = viewRange;
+	mVisualSensor->viewHalfAngle = viewAngle * X::Math::kDegToRad;
+
+	mPerceptionModule->Update(deltaTime);
+
 	if (mWanderBehavior->IsActive())
 	{
 		mWanderBehavior->Setup(wanderRadius, wanderDistance, wanderJitter);
@@ -79,6 +95,14 @@ void Peon::Update(float deltaTime)
 		position.y -= screenHeight;
 	}
 
+	const auto& memmoryRecords = mPerceptionModule->GetMemoryRecords();
+
+	for (auto& memory : memmoryRecords)
+	{
+		auto pos = memory.GetProperty<X::Math::Vector2>("lastSeenPosition");
+		X::DrawScreenLine(position, pos, X::Colors::Aquamarine);
+	}
+
 }
 
 void Peon::Render()
@@ -94,9 +118,4 @@ void Peon::ShowDebug(bool debug)
 {
 	mWanderBehavior->ShowDebug(debug);
 	mSeekBehavior->ShowDebug(debug);
-	mFleeBehavior->ShowDebug(debug);
-	mArriveBehavior->ShowDebug(debug);
-	mSeperationBehavior->ShowDebug(debug);
-	mAlignmentBehavior->ShowDebug(debug);
-	mCohesionBehavior->ShowDebug(debug);
 }

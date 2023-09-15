@@ -171,7 +171,10 @@
     <ClInclude Include="Inc\Entity.h" />
     <ClInclude Include="Inc\GridBaseGraph.h" />
     <ClInclude Include="Inc\GroupBehavior.h" />
+    <ClInclude Include="Inc\MemoryRecord.h" />
+    <ClInclude Include="Inc\PerceptionModule.h" />
     <ClInclude Include="Inc\SeekBehavior.h" />
+    <ClInclude Include="Inc\Sensor.h" />
     <ClInclude Include="Inc\State.h" />
     <ClInclude Include="Inc\StateMachine.h" />
     <ClInclude Include="Inc\SteeringBehavior.h" />
@@ -190,6 +193,7 @@
     <ClCompile Include="Src\Entity.cpp" />
     <ClCompile Include="Src\GridBaseGraph.cpp" />
     <ClCompile Include="Src\GroupBehavior.cpp" />
+    <ClCompile Include="Src\PerceptionModule.cpp" />
     <ClCompile Include="Src\Precompiled.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>

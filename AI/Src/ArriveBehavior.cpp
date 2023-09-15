@@ -2,8 +2,6 @@
 #include "ArriveBehavior.h"
 #include "Agent.h"
 
-extern AI::ArriveBehavior::Deceleration deceleration;
-
 X::Math::Vector2 AI::ArriveBehavior::Calculate(Agent& agent)
 {
 	const auto agentToDest = agent.destination - agent.position;
@@ -13,7 +11,7 @@ X::Math::Vector2 AI::ArriveBehavior::Calculate(Agent& agent)
 	if (distToDest > 0.1f)
 	{
 		const float decelTweaker = 0.3f;
-		float speed = distToDest / (((float)deceleration + 1.0f) * decelTweaker);
+		float speed = distToDest / (((float)mDeceleration + 1.0f) * decelTweaker);
 		speed = X::Math::Min(speed, agent.maxSpeed);
 	}
 
@@ -29,4 +27,9 @@ X::Math::Vector2 AI::ArriveBehavior::Calculate(Agent& agent)
 	}
 
 	return arriveForce;
+}
+
+void AI::ArriveBehavior::SetDeceleration(Deceleration decel)
+{
+	mDeceleration = decel;
 }

@@ -16,10 +16,19 @@
 #include "Entity.h"
 #include "Agent.h"
 
+//Perception
+#include "MemoryRecord.h"
+#include "PerceptionModule.h"
+#include "Sensor.h"
+
 //Steering
+// 
+//individual
 #include "ArriveBehavior.h"
-#include "GroupBehavior.h"
 #include "SteeringModule.h"
 #include "SteeringBehavior.h"
 #include "WanderBehavior.h"
 #include "SeekBehavior.h"
+//
+//group
+#include "GroupBehavior.h"

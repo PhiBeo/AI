@@ -14,7 +14,8 @@ float wanderJitter = 5.0f;
 float wanderRadius = 20.0f;
 float wanderDistance = 50.0f;
 
-AI::ArriveBehavior::Deceleration deceleration = AI::ArriveBehavior::Deceleration::Normal;
+float viewRange = 300.f;
+float viewAngle = 45.f;
 
 int activeBehavior = 0;
 
@@ -64,20 +65,16 @@ bool GameLoop(float deltaTime)
 
 	const static char* behaviors[] =
 	{
-		"Flee",
-		"Seek",
 		"Wander",
-		"Arrive"
+		"Seek"
 	};
 
 	if (ImGui::Combo("ActiveBehavior##", &activeBehavior, behaviors, std::size(behaviors)))
 	{
 		for (auto& peon : peons)
 		{
-			peon->SetFlee(activeBehavior == 0);
+			peon->SetWander(activeBehavior == 0);
 			peon->SetSeek(activeBehavior == 1);
-			peon->SetWander(activeBehavior == 2);
-			peon->SetArrive(activeBehavior == 3);
 		}
 	}
 
@@ -88,49 +85,17 @@ bool GameLoop(float deltaTime)
 		ImGui::DragFloat("Jitter##", &wanderJitter, 0.1f, 0.1f, 10.f);
 	}
 
-	if (ImGui::CollapsingHeader("Arrive##Settings", ImGuiTreeNodeFlags_DefaultOpen))
+	if (ImGui::CollapsingHeader("Visual##Sensor", ImGuiTreeNodeFlags_DefaultOpen))
 	{
-		const static char* decelerationSpeeds[] =
-		{
-			"Fast",
-			"Normal",
-			"Slow"
-		};
-
-		int decel = static_cast<int>(deceleration);
-		if (ImGui::Combo("Deceleration##", &decel, decelerationSpeeds, std::size(decelerationSpeeds)))
-		{
-			deceleration = static_cast<AI::ArriveBehavior::Deceleration>(decel);
-		}
+		ImGui::DragFloat("View##Range", &viewRange, 1.f, 100.f, 1000.0f);
+		ImGui::DragFloat("View##Angle", &viewAngle, 1.f, 10.f, 180.f);
 	}
 
 	ImGui::End();
 
-	if (X::IsMousePressed(X::Mouse::LBUTTON))
-	{
-		const auto mouseX = static_cast<float>(X::GetMouseScreenX());
-		const auto mouseY = static_cast<float>(X::GetMouseScreenY());
-		const auto destination = X::Math::Vector2(mouseX, mouseY);
-
-		for (auto& peon : peons)
-		{
-			peon->destination = destination;
-		}
-	}
 
 	aiWorld.Update();
-	for (auto& peon : peons)
-	{
-		auto neighbors = aiWorld.GetEntitiesInRange({ peon->position, 100.0f }, Types::PeonId);
-		peon->neighbors.clear();
-		for (auto& n : neighbors)
-		{
-			if (n != peon.get())
-			{
-				peon->neighbors.push_back(static_cast<AI::Agent*>(n));
-			}
-		}
-	}
+
 	for (auto& peon : peons)
 	{
 		peon->Update(deltaTime);
@@ -156,7 +121,7 @@ void GameCleanup()
 
 int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 {
-	X::Start("Steering");
+	X::Start("Perception");
 	GameInit();
 
 	X::Run(GameLoop);
